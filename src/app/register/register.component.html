@@ -1,0 +1,90 @@
+
+
+<app-navbar></app-navbar>
+<div style="background-image: url('https://images.pexels.com/photos/4050468/pexels-photo-4050468.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); ">
+    <div class="row">
+       
+<div class="container" style="font-family: cursive; font-weight: 700; ">
+    <br><br><br>
+    <div class="row mt-5">
+        
+        <div class="col-md-4 col-sm-2"></div>
+    <div class="col-md-4 col-sm-8">
+
+            <div class="card shadow-lg p-3 mb-2 bg-white rounded" style="margin-top: 70px;">
+
+                <img src="https://zohowebstatic.com/sites/default/files/ogimage/notebook-logo.png" width="10%" height="10%">
+                <h2>Register</h2>
+                <h4>to access Notebook</h4>
+                <br>
+              <form class="form row g-3 "     [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="inputContainer">
+                            
+                        <i class="fas fa-user fa-lg"></i>
+                        <input type="text" name="username" id="" class="input-field" class="form-control" placeholder="Enter your Username" formControlName="username">
+                        <p style="color: red;" *ngIf="registerForm.get('username').hasError('required')&& !registerForm.get('username').untouched">Name is required**</p>
+
+
+                        <i class="fas fa-envelope fa-lg"></i>
+                        <input type="email" name="email" id="" class="input-field" class="form-control" placeholder="Enter your Email ID" formControlName="email">
+                        <p style="color: red;" *ngIf="registerForm.get('email').hasError('required')&& !registerForm.get('email').untouched">Email ID is required**</p>
+
+                        <i class="fas fa-lock fa-lg"></i>
+                        <input type="password" name="password" id="" class="input-field" class="form-control" placeholder="Enter your Password" formControlName="password">
+                        <p style="color: red;" *ngIf="registerForm.get('password').hasError('required')&& !registerForm.get('password').untouched">Password is required**</p>
+                        
+                </div>
+
+                  <div class="col-6">
+                    <button class="btn btn-success" type="submit" >Register</button>
+                </div>
+
+
+                  <div class="text-center mt-5">
+                    <h5>Having an account?</h5>
+                    <button class="btn btn-primary"(click)="onChange()" >Login</button>
+                </div>
+
+            </form>
+
+        
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-2"></div>
+</div>
+</div>
+</div>
+<br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+  
+    
+  
+
+
+
+
+

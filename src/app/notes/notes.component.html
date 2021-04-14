@@ -1,0 +1,178 @@
+
+
+
+<body>
+
+    <div style="background-image: url('https://images.pexels.com/photos/768474/pexels-photo-768474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); background-size: cover;">
+        <div class="row">
+        <div>
+        <div class="dropdown " style="font-family: cursive; ">
+            
+        
+            <img id="1" src="https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png" alt=""   data-bs-toggle="dropdown" aria-expanded="false" style="width: 60px; height: 60px; float: right; margin-right: 80px; margin-top: 5px; ">
+        
+        <ul class="dropdown-menu shadow-lg p-3 mb-3 bg-white rounded" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" >
+               <h5> <i class="fas fa-user"></i>  Welcome {{username}}...!!!</h5>
+            </a></li>
+            <br>
+            <div class="text-center">
+                <li>
+                    <button class="btn btn-outline-danger "  (click)="onLogout()"><i class="fas fa-sign-out-alt"></i> logout</button>
+                </li>
+            </div>
+          
+        </ul>
+        </div>
+    </div>
+    <div class="container" style="font-family: cursive; ">
+       <div class="row mt-5">
+           <div class="mb-5">
+               <div class="inputContainer" style="font-family:initial">
+               <i class="fas fa-search"></i>
+               <input type="text" class="form-control" [(ngModel)]="filterTerm" placeholder="search for your notes" style="border-radius: 40px;">
+                </div>
+            </div>
+           <div class="col-3"></div>
+           <div class="col-6">
+               <div   class="card shadow-lg p-3 mb-5 bg-white rounded">
+                   <form #ref="ngForm" (ngSubmit)="ref.form.valid && onSubmit(ref)">
+                       <input type="text" id="title" name="title" class="form-control mt-3 mb-1" ngModel placeholder="title" required>
+                       <input type="text" id="note" name="note" class="form-control" ngModel placeholder="text" required>
+                       <div class="text-center"><button type="submit" class="btn btn-primary mt-3"  >Add notes <i class="fas fa-plus-circle"></i></button></div>
+                       
+                  </form>
+               </div>
+             
+           </div>
+           <div class="col-3"></div>
+       </div>
+      
+       <div class="container mt-5">
+     
+       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3">
+           
+           <div *ngFor="let n of notes | filter:filterTerm ">
+               <div class="col">
+                   <div class="card  shadow-lg p-3 mb-5 bg-white rounded">
+                       <div class="card-header">
+                           <h4 class="card-title">
+                               {{n.title}}
+                           </h4>
+                       </div>
+                       <div class="card-body">
+                        
+                           <h5 class="card-title">
+                                {{n.note }}
+                           </h5>
+    
+                          
+                       </div>
+    
+                       <div class="card-footer">
+                           
+                                                   <!-- Button trigger modal -->
+                           <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="gotoModal(n)" >
+                               <i class="far fa-edit"></i>
+                           </button>
+                           
+                           <!-- Modal -->
+                           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                               <div class="modal-dialog modal-dialog-centered">
+                               <div class="modal-content">
+                                   <div class="modal-header">
+                                       <input type="text" class="form-control m-2 inp1" name="title" placeholder="enter title" [(ngModel)]="update.title">
+                                   </div>
+                                 
+                                   <div class="modal-body">
+                                      
+                                      
+                                       <input type="text" class="form-control m-2 inp1" name="note" placeholder="enter notes" [(ngModel)]="update.note">
+                                   </div>
+    
+                                   
+                                   <div class="modal-footer">
+                                       <button type="button" class="btn btn-outline-success" (click)="save()"  data-bs-dismiss="modal"><i class="far fa-save"></i></button>
+    
+                                   </div>
+                               </div>
+                               
+                               </div>
+                           </div>
+                           
+                        
+                           <div class="btn btn-outline-success " style="margin-left: 35%;"  data-bs-toggle="modal" data-bs-target="#staticBackdrop12"  (click)="gotoModal(n)" ><i class="fas fa-stopwatch"></i></div>
+    
+                              
+                                
+                           <!-- Modal -->
+                           <div class="modal fade" id="staticBackdrop12" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                               <div class="modal-dialog modal-dialog-centered">
+                               <div class="modal-content">
+                                   
+                                   
+                                   <div class="modal-body">
+                                       
+                                       
+                                       <input type="time" style="font-family: cursive;" class="form-control m-2 inp1" name="time" placeholder="Enter time" [(ngModel)]="update.time">
+                                   </div>
+       
+                                   
+                                   <div class="modal-footer">
+                                       <button type="button" class="btn btn-outline-success"  (click)="save()" data-bs-dismiss="modal"><i class="far fa-save"></i></button>
+                                       <button type="button" class="btn btn-danger"   data-bs-dismiss="modal">close</button>
+                                   </div>
+                               </div>
+                               
+                               </div>
+                           </div>
+                                
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+                           
+                        <div class="btn btn-outline-danger" style="float: right;"   data-bs-toggle="modal" data-bs-target="#staticBackdrop123"><i class="fas fa-trash-alt"></i></div>
+    
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop123" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        
+                                        
+                                        <div class="modal-body">
+                                            <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; ">Are you sure? want to delete selected!!</h3>
+                                        </div>
+            
+                                        
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-danger"  (click)="onDelete(n.id)" data-bs-dismiss="modal"><i class="fas fa-check"></i></button>
+                                            <button type="button" class="btn btn-outline-success"  data-bs-dismiss="modal"><i class="far fa-window-close"></i></button> 
+                                        </div>
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                                
+                       </div>
+    
+                 
+                   
+                   </div> 
+               </div>
+           </div>
+       </div>
+    </div>
+    </div> 
+    
+</div> 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div> 
+</body>
+

@@ -42,5 +42,5 @@ app.use((err,req,res,next)=>{
     res.send({message:"error occurred",reason:err.message})
 })
 
-app.listen(process.env,PORT||8080)
+app.listen(process.env.PORT||8080)
 // app.listen(process.env.port,()=>console.log("server is on",process.env.port));

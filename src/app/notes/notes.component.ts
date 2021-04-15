@@ -20,6 +20,7 @@ export class NotesComponent implements OnInit {
   timeout;
   remind:any;
   time;
+  timearray:any;
 
   update = {title:"" , note : " ",id:"" , time:""}
   constructor(private us:UserService , private ru:Router , private ts:ToastrService) { }
@@ -58,8 +59,13 @@ reminder(){
       if(res["message"])
       {
         console.log(res["message"]);
-        console.log("time has found")
-        this.ts.warning('reminded')
+        this.timearray=res["message"]
+        console.log("reminder note is",this.timearray)
+        
+        
+        
+                console.log("time has found")
+                this.ts.warning(this.timearray[0].title,'You have a remainder');
           
       }
      
@@ -93,13 +99,13 @@ reminder(){
         else if(res["message"]=="session expired..plz relogin to continue")
         {
           this.session=!this.session
-          alert(res["message"]);
+          this.ts.warning(res["message"]);
           this.ru.navigateByUrl("/login");
         }
       },
       err=>{
         console.log(err);
-        alert("something went wrong");
+        this.ts.warning("something went wrong");
       }
     )
 
@@ -117,7 +123,7 @@ reminder(){
         else if(res["message"]=="session expired..plz relogin to continue")
         {
           this.session=!this.session
-          alert(res["message"]);
+          this.ts.warning(res["message"]);
           this.ru.navigateByUrl("/login");
         }
       },
@@ -139,7 +145,7 @@ reminder(){
           else if(res["message"]=="session expired..plz relogin to continue")
           {
             this.session=!this.session
-            alert(res["message"]);
+            this.ts.warning(res["message"]);
             this.ru.navigateByUrl("/login");
           }
         },
@@ -174,13 +180,13 @@ reminder(){
           else if(res["message"]=="session expired..plz relogin to continue")
           {
             this.session=!this.session
-            alert(res["message"]);
+            this.ts.warning(res["message"]);
             this.ru.navigateByUrl("/login");
           }
         },
         err=>{
           console.log(err);
-          alert("something wrong");
+          this.ts.warning("something wrong");
         }
       )
     }

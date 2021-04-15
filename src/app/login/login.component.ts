@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   
      this.us.loginUser(userCredObj).subscribe(
       res=>{
-        if(res["message"]==["success"]){
+        if(res["message"]===["success"]){
           localStorage.setItem("token",res["signedToken"])
           localStorage.setItem("username",res["username"])
 

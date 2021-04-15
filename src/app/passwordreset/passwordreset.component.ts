@@ -27,11 +27,11 @@ onSubmit(){
   let obj=this.passwordForm.value;
   console.log("pass is",this.passwordForm.value)
 
-  if(obj.password1==obj.password2){
+  if(obj.password1===obj.password2){
     console.log("passwords are same")
 this.us.changePassword(obj).subscribe(
   res=>{
-    if(res["message"]=="success"){
+    if(res["message"]==="success"){
       this.ts.success('Password reset Successful...!!!');
       this.router.navigateByUrl("/login");
     }

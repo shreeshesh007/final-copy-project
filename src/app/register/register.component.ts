@@ -29,11 +29,11 @@ export class RegisterComponent implements OnInit {
     
     this.us.createUser(userObj).subscribe(
       res=>{
-        if(res["message"]=="user already exists"){
+        if(res["message"]==="user already exists"){
           this.ts.success('Username already exists','Please choose another Username');
           //alert("username already exists take another username");
         }
-        if(res["message"]=="user created"){
+        if(res["message"]==="user created"){
           this.ts.success('User created Successfully..!!!');
          // alert("user created");
           this.router.navigateByUrl("/login");

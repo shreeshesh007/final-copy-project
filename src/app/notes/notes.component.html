@@ -3,6 +3,38 @@
 
 <body>
 
+    <nav class="navbar navbar-dark bg-dark" style="font-family: cursive; ">
+        <div class="container-fluid">
+          <h3 class="nav-brand" style="color: ivory;">UserDashBoard!!</h3>
+          <form class="d-flex col-12 col-lg-2">
+                    
+            <div>
+                <div class="dropdown " >
+                    <img id="1" src="https://capenetworks.com/static/images/testimonials/user-icon.svg" alt=""   data-bs-toggle="dropdown" aria-expanded="false" style="width: 60px; height: 60px; float: right; margin-right: 80px; margin-top: 5px; ">
+                
+                <ul class="dropdown-menu shadow-lg p-3 mb-3 bg-white rounded" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" >
+                    <h5> <i class="fas fa-user"></i>  Welcome {{username}}...!!!</h5>
+                    </a></li>
+                    <br>
+                    <div class="text-center">
+                        <li>
+                            <button class="btn btn-outline-danger "  (click)="onLogout()"><i class="fas fa-sign-out-alt"></i> logout</button>
+                        </li>
+                    </div>
+                
+                </ul>
+                </div>
+            </div>
+           
+        </form>
+        
+        </div>
+      </nav>
+
+
+
+
     <div style="background-image: url('https://images.pexels.com/photos/768474/pexels-photo-768474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); background-size: cover;">
         <div class="row">
         <div>
